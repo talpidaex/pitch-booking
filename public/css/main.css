@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: Arial,sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff; }
+
+.navbar {
+  position: relative;
+  display: flex;
+  padding: 0.5rem 2.5rem;
+}
+.uyeOlContainer{
+  height: 100%;
+  align-content: center;
+}
+.d-flex {
+  margin-top: 70px;
+}
+
+.social_icon{
+  position: absolute;
+right: 20px;
+top: -45px;
+}
+#uye-giris{
+height: 350px;
+margin-top: 4rem;
+margin-bottom: auto;
+width: 350px;
+}
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+.social_icon span:hover{
+color: black;
+cursor: pointer;
+}
+.input-group-prepend{
+text-align: center;
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+.login_btn{
+float: right;
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
