@@ -1,36 +1,23 @@
+//----------------npm paketlerimiz---------------
 const express = require("express");
 const bodyParser = require("body-parser");
 var app = express();
 
+//-------------App Config bölümü---------
 app.set("view engine", "ejs");
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
   extended: false
-}))
+}));
 
-app.get("/", function(req, res) {
-  res.render("anasayfa");
-});
-
-app.get("/kayit-ol", function(req, res) {
-  res.render("kayıtOl");
-});
-
-app.get("/uye-giris", function(req, res) {
-  res.render("uyeGiris");
-});
-
-app.get("/admin-giris", function(req, res) {
-  res.render("admin-giris");
-});
-app.get("/iletisim", function(req, res) {
-  res.render("iletisim");
-});
+//-------------Router middleware------------
+const indexRoutes = require("./routes/indexRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+app.use(indexRoutes);
+app.use(adminRoutes);
 
 
-
-
+//--------------Server-------------------
 app.listen(3000, function() {
   console.log("Dinleninen port : 3000");
 })
