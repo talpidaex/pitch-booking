@@ -13,6 +13,10 @@ app.get("/", function(req, res) {
   res.render("anasayfa");
 });
 
+app.get("/kayit-ol", function(req, res) {
+  res.render("kayıtOl");
+});
+
 app.get("/uye-giris", function(req, res) {
   res.render("uyeGiris");
 });

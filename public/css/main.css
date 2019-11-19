@@ -8,10 +8,16 @@ body {
   background-color: #fff; }
 
 .navbar {
+  background: (0,0,0,0.5);
   position: relative;
   display: flex;
   padding: 0.5rem 2.5rem;
 }
+.navbar-brand{
+  width: 60px;
+  height: 60px;
+}
+
 .uyeOlContainer{
   height: 100%;
   align-content: center;
@@ -19,7 +25,6 @@ body {
 .d-flex {
   margin-top: 70px;
 }
-
 .social_icon{
   position: absolute;
 right: 20px;
@@ -30,6 +35,18 @@ height: 350px;
 margin-top: 4rem;
 margin-bottom: auto;
 width: 350px;
+}
+.halisaha-cards{
+  margin-top: 2.6rem;
+  margin-bottom : 2.5rem;
+}
+.halisaha-cards .card-body{
+  text-align: center;
+}
+.halisaha-cards a{
+
+margin: 20px 0 20px 0;
+
 }
 .social_icon span{
 font-size: 60px;
@@ -47,10 +64,62 @@ background-color: #FFC312;
 color: black;
 border:0 !important;
 }
-
 .login_btn{
 float: right;
 color: black;
 background-color: #FFC312;
 width: 100px;
+}
+.jumbotron {
+  text-align: center;
+}
+.jumbotron .fas{
+  margin: 20px;
+}
+.card-kayıtOl{
+   border-radius: 1rem;
+   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.6);
+}
+.card-kayıtOl .card-title{
+  margin-top: 27px;
+}
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+.form-label-group{
+    padding-left: 1.4rem;
+
+}
+.form-label-group input {
+  width: 95%;
+  height: auto;
+  border-radius: 3rem;
+}
+.card-kayıtOl .btn-primary{
+  margin-top: 2rem;
+  width: 95%;
+}
+.btn-google {
+  width: 95%;
+  color: white;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+    width: 95%;
+  color: white;
+  background-color: #3b5998;
+}
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  height:150px;
 }
