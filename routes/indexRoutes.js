@@ -26,6 +26,12 @@ router.get("/randevual", function(req, res) {
 router.get("/galeri", function(req, res) {
   res.render("galeri");
 })
+router.get("/google-kayit", function(req,res){
+  res.render("google-kayit");
+})
+router.get("/face-kayit", function(req,res){
+  res.render("face-kayit");
+})
 
 
 module.exports = router;
