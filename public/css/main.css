@@ -40,6 +40,12 @@ width: 350px;
   margin-top: 2.6rem;
   margin-bottom : 2.5rem;
 }
+.halisaha-cards img{
+  height: 230px;
+}
+.halisaha-cards .card-title{
+    margin-top: 25px;
+}
 .halisaha-cards .card-body{
   text-align: center;
 }
