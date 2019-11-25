@@ -1,3 +1,4 @@
+
 .navbar {
 	background: (0,0,0,0.5);
 	position: relative;
@@ -17,18 +18,18 @@
 	margin-top: 42px;
 	max-width: 642px;
 	width: 100%;
-	
+
 }
 
 .booking-form .form-header {
 	margin-bottom: 0.80rem;
 	margin-top: 0px;
 	text-align: center;
-	
+
 }
 
 .booking-form .form-header h1 {
-	
+
 	font-size: 1.5rem;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -40,7 +41,7 @@
 	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.6);
 	border-radius: 1rem;
 	padding: 30px 20px;
-	
+
 }
 
 .booking-form .form-group {
@@ -111,7 +112,9 @@
 }
 
 .booking-form .submit-btn {
-	color: #101113;
+	margin-top: 2rem;
+	font-family: Arial,sans-serif;
+	color: white;
 	background-color: #025aa5;
 	font-weight: 700;
 	height: 50px;
@@ -120,6 +123,11 @@
 	display: block;
 	border-radius: 3px;
 	text-transform: uppercase;
+}
+.booking-form .submit-btn:hover {
+	color: black;
+	cursor: pointer;
+
 }
 #combo-eksikoyuncu{
 	width: 25%;
