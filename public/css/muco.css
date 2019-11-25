@@ -1,71 +1,58 @@
-.section {
+.navbar {
+	background: (0,0,0,0.5);
 	position: relative;
-	height: 100vh;
-}
+	display: flex;
+	padding: 0.5rem 2.5rem;
+  }
+  .navbar-brand{
+	width: 60px;
+	height: 60px;
+  }
 
-.section .section-center {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
 
-#booking {
-	font-family: 'Montserrat', sans-serif;
-	background-image: url('../img/background.jpg');
-	background-size: cover;
-	background-position: center;
-}
-
-#booking::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	background: rgba(0, 0, 0, 0.6);
-}
 
 .booking-form {
+	margin-left: 250px;
+	margin-right: 250px;
+	margin-top: 42px;
 	max-width: 642px;
 	width: 100%;
-	margin: auto;
+	
 }
 
 .booking-form .form-header {
-	margin-top: 10rem;
+	margin-bottom: 0.80rem;
+	margin-top: 0px;
 	text-align: center;
 	
 }
 
 .booking-form .form-header h1 {
-	font-size: 58px;
+	
+	font-size: 1.5rem;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: #ffc001;
+	color: inherit;
 	margin: 0px;
 }
 
 .booking-form>form {
-	background-color: #101113;
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.6);
+	border-radius: 1rem;
 	padding: 30px 20px;
-	border-radius: 3px;
+	
 }
 
 .booking-form .form-group {
     position: relative;
-    color : white;
+    color: #464a4c;
 	margin-bottom: 10px;
 }
 
 .booking-form .form-control {
 	background-color: #f5f5f5;
-	border: none;
+	border-radius: 3rem;
 	height: 45px;
-	border-radius: 3px;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	font-weight: 400;
@@ -115,7 +102,7 @@
 }
 
 .booking-form .form-label {
-	color: #fff;
+	color: #464a4c;
 	font-size: 12px;
 	font-weight: 400;
 	margin-bottom: 5px;
@@ -125,7 +112,7 @@
 
 .booking-form .submit-btn {
 	color: #101113;
-	background-color: #ffc001;
+	background-color: #025aa5;
 	font-weight: 700;
 	height: 50px;
 	border: none;
@@ -134,3 +121,13 @@
 	border-radius: 3px;
 	text-transform: uppercase;
 }
+#combo-eksikoyuncu{
+	width: 25%;
+}
+footer{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: orange;
+	height:150px;
+  }
