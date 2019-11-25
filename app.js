@@ -15,7 +15,7 @@ const indexRoutes = require("./routes/indexRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 app.use(indexRoutes);
 app.use(adminRoutes);
-//mucahit//
+
 
 //--------------Server-------------------
 app.listen(3000, function() {

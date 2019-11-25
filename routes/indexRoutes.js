@@ -9,23 +9,20 @@ router.get("/", function(req, res) {
 router.get("/kayit-ol", function(req, res) {
   res.render("kayıtOl");
 });
-
 router.get("/uye-giris", function(req, res) {
   res.render("uyeGiris");
 });
-
 router.get("/iletisim", function(req, res) {
   res.render("iletisim");
 });
 router.get("/hakkimizda", function(req, res) {
   res.render("hakkimizda");
-})
+});
 router.get("/randevual", function(req, res) {
   res.render("randevual");
-})
+});
 router.get("/galeri", function(req, res) {
   res.render("galeri");
-})
-
+});
 
 module.exports = router;
