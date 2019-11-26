@@ -1,0 +1,40 @@
+.testimonial-box img {
+    display: inline-block;
+    font-size: 25%;
+    width: 90px;
+    height:90px;
+    margin-top: 25%;
+    border-radius: 50%;
+    
+}
+.testimonial-box h4 {
+    color: #fe4819;
+}
+.testimonial-box p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 400;
+}
+.ratings-icons {
+    font-size: 250%;
+    margin-top: 5%;
+    color: #fec42d;
+    margin-bottom: 15px;
+}
+#avatar
+{ 
+    font-size: 120px;
+    margin-bottom: 15px ;
+    margin-top: 25px;
+}
+.navbar {
+    background: (0,0,0,0.5);
+    position: relative;
+    display: flex;
+    padding: 0.5rem 2.5rem;
+  }
+  .navbar-brand{
+    width: 60px;
+    height: 60px;
+  }

@@ -31,5 +31,11 @@ router.get("/google-kayit", function(req, res) {
 router.get("/face-kayit", function(req, res) {
   res.render("face-kayit");
 })
+router.get("/2fa-giris", function(req, res) {
+  res.render("2fa-giris");
+})
+router.get("/halisaha-degerlendirme", function(req, res) {
+  res.render("halisaha-degerlendirme");
+})
 
 module.exports = router;
