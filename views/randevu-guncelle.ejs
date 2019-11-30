@@ -1,0 +1,147 @@
+<html lang="tr" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+  <!-- Ozel css dosyamız -->
+  <link rel="stylesheet" href="css/muco.css"> <link rel="stylesheet" href="css/main.css">
+
+</head>
+<%-include("partials/header") %>
+
+<body>
+  <div id="booking" class="section">
+    <div class="section-center">
+      <div class="container">
+        <div class="row">
+          <div class="booking-form">
+            <form>
+              <div class="form-header">
+                <h1>Randevu Güncelle</h1>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">İsim</span>
+                    <input class="form-control" type="text" value="Okan Zengin">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">E-mail</span>
+                    <input class="form-control" type="email" value="crazy_okan_45@gmail.com">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Telefon</span>
+                <input class="form-control" type="tel" value="5555644545">
+              </div>
+              <div class="form-check">
+                <span class="form-label">Servis ister misin? </span>
+                <input  type="radio" class="form-check-input" id ="servisEvet"name="servisSecenegi" checked>
+                <label class="form-check-label" for="servisEvet">Evet</label> 
+              </div>
+              <div class="form-check">
+                <input  type="radio" class="form-check-input" id ="servisHayır"name="servisSecenegi" >
+                <label class="form-check-label" for="servisHayır">Hayır</label>
+              </div>
+
+              <div class="form-check">
+                <span class="form-label">Video ister misin?</span>
+                <input  type="radio" class="form-check-input" id ="videoEvet"name="videoSecenegi" checked >
+                <label class="form-check-label" for="videoEvet">Evet</label>                     
+              </div>
+              <div class="form-check">
+                <input  type="radio" class="form-check-input" id ="videoEvet"name="videoSecenegi"  >
+                <label class="form-check-label" for="hakemRed">Hayır</label>
+              </div>
+
+              <div class="form-check">
+                <span class="form-label">Hakem ister misin?</span>
+                <input  type="radio" class="form-check-input" id ="hakemEvet"name="hakemSecenegi" >
+                <label class="form-check-label" for="hakemEvet">Evet</label>
+              </div>
+              <div class="form-check">
+                <input  type="radio" class="form-check-input" id ="hakemHayır"name="hakemSecenegi" checked>
+                <label class="form-check-label" for="hakemHayır">Hayır</label>
+              </div>
+
+
+              <div class="form-group" id="combo-eksikoyuncu">
+                <span class="form-label ">Eksik oyuncu ?</span>
+                <select class="form-control">
+
+
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+
+                </select>
+                <span class="select-arrow"></span>
+              </div>
+
+              <div class="form-check">
+                <span class="form-label">Ödeme seçeneği?</span>
+                <input type="radio" class="form-check-input" id="nakit" name="OdemeSecenegi" checked>
+                <label class="form-check-label" for="nakit">Nakit</label>
+              </div>
+
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="kredi-karti" name="OdemeSecenegi">
+                <label class="form-check-label" for="kredi-karti">Kredi Kartı</label>
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <span class="form-label">Randevu Tarihi</span>
+                    <input class="form-control" type="text"  value="03.12.2019">
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <span class="form-label">Saat</span>
+                        <select class="form-control">
+
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+                          <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+                          <option>22</option>
+                          <option>23</option>
+                          <option>00</option>
+                          <option>01</option>
+                          <option>02</option>
+                          <option>03</option>
+
+                        </select>
+                        <span class="select-arrow"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-btn">
+                <button class="submit-btn">Randevu Güncelle</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+<%-include("partials/footer") %>
+
+</html>

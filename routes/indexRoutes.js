@@ -21,6 +21,17 @@ router.get("/hakkimizda", function(req, res) {
 router.get("/randevual", function(req, res) {
   res.render("randevual");
 });
+router.get("/kayitli-randevular", function(req, res) {
+  res.render("kayitli-randevular");
+});
+router.get("/randevu-guncelle", function(req, res) {
+  res.render("randevu-guncelle");
+});
+router.get("/randevu-iptal", function(req, res) {
+  res.render("randevu-iptal");
+});
+
+
 router.get("/galeri", function(req, res) {
   res.render("galeri");
 
