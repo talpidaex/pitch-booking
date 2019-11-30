@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <!--font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- Ozel css dosyamız -->
+  <link rel="stylesheet" href="css/main.css">
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+  <%-include("../partials/adminHeader") %>
+  <!-- Sol menü -->
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-3">
+        <%-include("../partials/adminNavBar") %>
+      </div>
+      <div class="col-md-9">
+        <h2>Duyurular ve Galeri Kontrolü </h2>
+        <form>
+          <h4> Duyuru Bölümü</h4>
+          <div class="form-group">
+            <label> Duyuru Yapılmasını İstediğiniz mesajı Buraya Yazınız</label>
+            <input type="text" class="form-control" placeholder="Mesajınız kısa olmalı duyuru için önemlidir!">
+          </div>
+          <button type="submit" class="btn btn-danger"> Duyuru Yap </button>
+        </form>
+        <!-- Galeri fotograf ekleme formu -->
+        <form>
+          <h4> Galeri Bölümü</h4>
+          <div class="form-group">
+            <label> Galerinize Buradan istediğiniz Fotoğrafları Ekleyebilirsiniz!</label><br>
+            <span>Gözat</span>
+            <input type="file" accept=".jpg,.png" class="form-control" multiple>
+          </div>
+          <button type="submit" class="btn btn-danger"> Galeriye Ekle </button>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="js/main.js">
+</script>
+<script src="https://code.jquery.com/jquery.js"></script>
+
+</html>

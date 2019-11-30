@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <!--font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- Ozel css dosyamız -->
+  <link rel="stylesheet" href="css/main.css">
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+  <%-include("../partials/adminHeader") %>
+  <!-- Sol menü -->
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-3">
+        <%-include("../partials/adminNavBar") %>
+      </div>
+      <div class="col-md-9">
+        <h2>Randevuları Görüntüle</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Randevu Tarihi</th>
+              <th scope="col">Saat</th>
+              <th scope="col">Ödeme Şekli</th>
+              <th scope="col">Video İsteği?</th>
+              <th scope="col">Hakem İsteği?</th>
+              <th scope="col">Eksik oyuncuları var mı?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="randevuSaati">29.11.2019</td>
+              <td>01.00- 02.00</td>
+              <td>Nakit</td>
+              <td>Evet</td>
+              <td>Hayır</td>
+              <td>Evet</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">30.11.2019</td>
+              <td>13.00-14.00</td>
+              <td>Kredi-kartı</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">30.11.2019</td>
+              <td>15.00-16.00</td>
+              <td>Nakit</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">30.11.2019</td>
+              <td>17.00-18.00</td>
+              <td>Nakit</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+              <td>Evet</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">01.12.2019</td>
+              <td>19.00-20.00</td>
+              <td>Kredi-kartı</td>
+              <td>Hayır</td>
+              <td>Evet</td>
+              <td>Hayır</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">30.11.2019</td>
+              <td>01.00- 02.00</td>
+              <td>Kredi-kartı</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+              <td>Evet</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">30.11.2019</td>
+              <td>01.00- 02.00</td>
+              <td>Nakit</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">01.12.2019</td>
+              <td>01.00- 02.00</td>
+              <td>Nakit</td>
+              <td>Hayır</td>
+              <td>Hayır</td>
+              <td>Evet</td>
+            </tr>
+            <tr>
+              <td class="randevuSaati">01.12.2019</td>
+              <td>01.00- 02.00</td>
+              <td>Kredi-kartı</td>
+              <td>Hayır</td>
+              <td>Evet</td>
+              <td>Hayır</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="js/main.js">
+</script>
+<script src="https://code.jquery.com/jquery.js"></script>
+
+</html>

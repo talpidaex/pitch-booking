@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <!--font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- Ozel css dosyamız -->
+  <link rel="stylesheet" href="css/main.css">
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+  <%-include("../partials/adminHeader") %>
+  <!-- Sol menü -->
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-3">
+        <%-include("../partials/adminNavBar") %>
+      </div>
+      <div class="col-md-9">
+        <h2>Sikayet Öneriler</h2>
+
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="inbox">
+            <div class="container">
+              <div class="content-container clearfix">
+                <div class="col-md-12">
+                  <ul class="mail-list">
+                    <li>
+                      <a href="">
+                        <span class="mail-sender">Oğuzhan Bayrak</span>
+                        <span class="mail-subject">Isıtma Sorunu</span>
+                        <span class="mail-message-preview">Halısahanız çok soğuk</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="mail-sender">Mücahit Özalp</span>
+                        <span class="mail-subject">Halısaha Topları</span>
+                        <span class="mail-message-preview">Toplar çok sert</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="mail-sender">Mete</span>
+                        <span class="mail-subject">Saatler</span>
+                        <span class="mail-message-preview">Çalışma saatleri uzatsanız çok daha seviniriz!</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="mail-sender">Okan Zengin</span>
+                        <span class="mail-subject">Duşlar</span>
+                        <span class="mail-message-preview">Sıcak suyunuz çalışmıyor,kış aylarında büyük sorun</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="mail-sender">Ömer Şahin</span>
+                        <span class="mail-subject">Isıtma Sorunu</span>
+                        <span class="mail-message-preview">Halısahanız çok soğuk</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="js/main.js">
+</script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</html>

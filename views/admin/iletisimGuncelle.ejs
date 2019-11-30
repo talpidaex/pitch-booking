@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <!--font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- Ozel css dosyamız -->
+  <link rel="stylesheet" href="css/main.css">
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+  <%-include("../partials/adminHeader") %>
+  <!-- Sol menü -->
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-3">
+        <%-include("../partials/adminNavBar") %>
+      </div>
+      <div class="col-md-9">
+        <h2>İletişim Bilgilerini Güncelle</h2>
+        <form>
+          <div class="form-group" class="iletisim-güncelle">
+            <label> Telefon <i class="fas fa-phone"></i> </label>
+            <input type="text" class="form-control" placeholder="Telefon Numarasını Güncelle">
+          </div>
+          <div class="form-group">
+            <label> Adres Bilgileri <i class="fas fa-ad"></i> </label>
+            <input type="text" class="form-control" placeholder="Adres Bilgilerini Güncelle">
+          </div>
+          <button type="submit" class="btn btn-danger"> Güncelle </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="js/main.js">
+</script>
+<script src="https://code.jquery.com/jquery.js"></script>
+
+</html>
