@@ -16,7 +16,7 @@
 	margin-left: 250px;
 	margin-right: 250px;
 	margin-top: 42px;
-	max-width: 642px;
+	max-width: 9000px;
 	width: 100%;
 
 }
@@ -143,4 +143,11 @@ footer{
 	justify-content: center;
 	background-color: orange;
 	height:150px;
+  }
+  .col-8 {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 66.666667%;
+		-ms-flex: 0 0 66.666667%;
+			flex: 0 0 66.666667%;
+	max-width: 66.666667%;
   }

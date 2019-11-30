@@ -37,5 +37,8 @@ router.get("/2fa-giris", function(req, res) {
 router.get("/halisaha-degerlendirme", function(req, res) {
   res.render("halisaha-degerlendirme");
 })
+router.get("/profil-guncelle", function(req, res) {
+  res.render("profil-guncelle");
+})
 
 module.exports = router;
