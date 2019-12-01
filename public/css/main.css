@@ -292,3 +292,7 @@ ul.mail-list li span.mail-message-preview{
   float: right;
   margin-right: 14rem;
 }
+tr:nth-child(even) {
+  background-color: orange;
+  color: black;
+}

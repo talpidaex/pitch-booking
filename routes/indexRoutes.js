@@ -30,6 +30,15 @@ router.get("/randevu-guncelle", function(req, res) {
 router.get("/randevu-iptal", function(req, res) {
   res.render("randevu-iptal");
 });
+router.get("/dacik-saha", function(req, res) {
+  res.render("dacik-saha");
+});
+router.get("/kapali-saha", function(req, res) {
+  res.render("kapali-saha");
+});
+router.get("/isitmali-saha", function(req, res) {
+  res.render("isitmali-saha");
+});
 
 
 router.get("/galeri", function(req, res) {
