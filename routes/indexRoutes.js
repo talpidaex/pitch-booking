@@ -51,5 +51,8 @@ router.get("/halisaha-degerlendirme", function(req, res) {
 router.get("/profil-guncelle", function(req, res) {
   res.render("profil-guncelle");
 })
+router.get("/sosyalmedya", function(req, res) {
+  res.render("sosyalmedya");
+})
 
 module.exports = router;
