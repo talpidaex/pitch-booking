@@ -1,8 +1,20 @@
 body {
     color: #646464;
     background: #e2e2e2;
-}	
+}
+.navbar {
+    background: (0,0,0,0.5);
+    position: relative;
+    display: flex;
+    padding: 0.5rem 2.5rem;
+  }
+  .navbar-brand{
+    width: 60px;
+    height: 60px;
+  }
+
 .login-form {
+
     width: 400px;
     margin: 60px auto;
 }
@@ -25,7 +37,7 @@ body {
     box-shadow: none !important;
 }
 .login-form .form-control, .login-form .btn {
-    min-height: 38px;        
+    min-height: 38px;
 }
 .login-form input[type="email"] {
     border-radius: 2px 2px 0 0;
@@ -33,8 +45,8 @@ body {
 .login-form input[type="password"] {
     border-radius: 0 0 2px 2px;
     margin-top: -1px;
-}    
-.login-form .btn {        
+}
+.login-form .btn {
     font-size: 15px;
     font-weight: bold;
     border-radius: 2px;
@@ -43,7 +55,7 @@ body {
     margin-bottom: 25px;
     outline: none !important;
 }
-.login-form a {		
+.login-form a {
     color: #405e9e;
 }
 .login-form form a {

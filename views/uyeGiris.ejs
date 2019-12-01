@@ -20,14 +20,14 @@
         <div class="card-header">
           <h3>Giris Yap</h3>
           <div class="d-flex justify-content-end social_icon">
-           
+
             <a href="/face-kayit"> <span><i class="fab fa-facebook-square"></i></span></a>
             <a href="/google-kayit"> <span><i class="fab fa-google-plus-square"></i></span></a>
 
           </div>
         </div>
         <div class="card-body" id="uye-giris">
-          <form action="/uye-giris" method="POST">
+          <form action="/" method="GET">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -42,7 +42,7 @@
               <input type="password" class="form-control" name="sifre" placeholder="sifre">
             </div>
             <div class="form-group">
-              <input type="submit" value="Giris" class="btn login_btn">
+              <input type="submit" value="Giris" class="btn login_btn" id="uye-giris-button">
             </div>
           </form>
         </div>
@@ -53,5 +53,8 @@
 
 
 </body>
+<script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="js/main.js" charset="utf-8"></script>
 
 </html>

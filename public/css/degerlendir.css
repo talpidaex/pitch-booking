@@ -5,7 +5,7 @@
     height:90px;
     margin-top: 25%;
     border-radius: 50%;
-    
+
 }
 .testimonial-box h4 {
     color: #fe4819;
@@ -23,7 +23,7 @@
     margin-bottom: 15px;
 }
 #avatar
-{ 
+{
     font-size: 120px;
     margin-bottom: 15px ;
     margin-top: 40px;
@@ -38,24 +38,56 @@
     width: 60px;
     height: 60px;
   }
-  
-  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+  .dropbtn {
+    color: #00000080;;
+    padding-top: 7px;
+    font-size: 17px;
+    border: none;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color:  #7dcea0 ;}
+
 
 /* Styling h1 and links
 ––––––––––––––––––––––––––––––––– */
-h1[alt="Simple"] {color: #ffca08;}
-a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none}
+
 
 
 
 .starrating > input {display: none;}  /* Remove radio buttons */
 
-.starrating > label:before { 
+.starrating > label:before {
   content: "\f005"; /* Star */
   margin: 2px;
   font-size: 4em;
   font-family: FontAwesome;
-  display: inline-block; 
+  display: inline-block;
 }
 
 .starrating > label
@@ -77,7 +109,7 @@ a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none}
 #login { display: none; }
 .page-header { position: relative; }
 .reviews {
-    color: #555;    
+    color: #555;
     font-weight: bold;
     margin: 10px auto 20px;
 }
@@ -87,16 +119,16 @@ a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none}
 }
 .media .media-object { max-width: 120px; }
 .media-body { position: relative; }
-.media-date { 
-    position: absolute; 
+.media-date {
+    position: absolute;
     right: 25px;
     top: 25px;
 }
 .media-date li { padding: 0; }
 .media-date li:first-child:before { content: ''; }
-.media-date li:before { 
-    content: '.'; 
-    margin-left: -2px; 
+.media-date li:before {
+    content: '.';
+    margin-left: -2px;
     margin-right: 2px;
 }
 .media-comment { margin-bottom: 20px; }
@@ -122,9 +154,22 @@ a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none}
     height: 100px;
     Width: 1000px;
 }
+.form-group {
+    margin-left: 5rem;
+}
+.form-group .btn{
+    align-items: center;
+}
 .kucukyazi{
     color: #586266;
     margin-top: 35px;
     text-align: center;
     font-size: 12px;
+}
+.text-center{
+  margin-top: 5rem;
+  text-align: center;
+}
+ h1{
+  color: #fe4819;
 }

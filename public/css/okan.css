@@ -4,7 +4,7 @@ h2{
 table.table {
     border-collapse: collapse;
     width: 350px;
-    
+
   }
   td {
     border: 1px solid green;
@@ -16,7 +16,7 @@ table.table {
     text-align: center;
     padding: 8px;
   }
-  
+
   tr:nth-child(even) {
     background-color: yellow;
     color: black;
