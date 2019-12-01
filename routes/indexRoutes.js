@@ -21,6 +21,17 @@ router.get("/hakkimizda", function(req, res) {
 router.get("/randevual", function(req, res) {
   res.render("randevual");
 });
+router.get("/kayitli-randevular", function(req, res) {
+  res.render("kayitli-randevular");
+});
+router.get("/randevu-guncelle", function(req, res) {
+  res.render("randevu-guncelle");
+});
+router.get("/randevu-iptal", function(req, res) {
+  res.render("randevu-iptal");
+});
+
+
 router.get("/galeri", function(req, res) {
   res.render("galeri");
 
@@ -36,6 +47,9 @@ router.get("/2fa-giris", function(req, res) {
 })
 router.get("/halisaha-degerlendirme", function(req, res) {
   res.render("halisaha-degerlendirme");
+})
+router.get("/profil-guncelle", function(req, res) {
+  res.render("profil-guncelle");
 })
 
 module.exports = router;

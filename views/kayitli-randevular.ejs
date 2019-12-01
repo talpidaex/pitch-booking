@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kayıtlı Randevular</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/muco.css"> <link rel="stylesheet" href="css/main.css">
+
+</head>
+<%-include("partials/header") %>
+
+<body>
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+                        <form class="okan-form">
+                            <div class="form-header">
+                            <h2>Kayıtlı Randevularınız</h2>
+                            <p>En Fazla 2 Ay Önce Olan Geçmiş Randevunuzu Görüntüleyebilirsiniz.</p></div>
+                            <table class="table table-hover table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Geçmiş Randevularınız</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                     <tr><td> 08.10.2019</td><td>Kapalı Saha</td></tr>
+                                        <tr><td>15.10.2019</td><td>Açık Saha</td></tr>
+                                        <tr><td>22.10.2019</td><td>Açık Saha</td></tr>
+                                       <tr><td>01.11.2019</td><td>Açık Saha</td></tr> 
+                                        <tr><td>08.11.2019</td><td>Kapalı Saha</td></tr>
+                                        <tr><td>15.11.2019</td><td>Kapalı Saha</td></tr>
+                                       <tr><td>22.11.2019</td><td>Kapalı Saha</td></tr> 
+                                   </tbody>
+                                </table>
+                                <br><br>
+                                <table class="table table-hover" align="center">
+                                    <thead>
+                                    <tr><th>Gelecek Randevularınız</th></tr></thead>
+                                    <tbody>
+                                    <tr><td>03.12.2019</td><td>Kapalı Saha</td></tr>
+                                    <tr><td>10.12.2019</td><td>Kapalı Saha</td></tr>
+                                    <tr><td>17.12.2019</td><td>Açık Saha</td></tr>
+                                    <tr><td>24.12.2019</td><td>Kapalı Saha</td></tr></tbody>
+                            </table>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+</body>
+<%-include("partials/footer") %>
+
+</html>
