@@ -24,6 +24,13 @@ router.get("/SifreDegistir", function(req, res) {
 
 router.get("/duyuru-galeri-ekle", function(req, res) {
   res.render("admin/duyuru-ve-image-ekle");
+});
+
+router.get("/admin-uye-goruntule", function(req, res) {
+  res.render("admin/admin-uye-goruntule");
+});
+router.get("/admin-reklam-yonetim", function(req, res) {
+  res.render("admin/admin-reklam-yonetim");
 })
 
 module.exports = router;
