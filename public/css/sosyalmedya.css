@@ -10,10 +10,22 @@ span{
 a{
   text-decoration:none;
   color: #0062cc;
-  border-bottom:2px solid #0062cc;
+
+}
+.col-lg-4 i {
+  font-size: 36px;
+  padding-top: 5px;
+  margin : 5px;
+}
+.col-lg-4 .fa-twitter,.fa-facebook-square{
+  color: blue;
+}
+.col-lg-4 .fa-instagram{
+  color: orange;
 }
 .box{
     padding:60px 0px;
+    margin-top: 5rem;
 }
 
 .box-part{
