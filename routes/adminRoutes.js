@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const connection = require("../models/connection");
 
 router.get("/admin-giris", function(req, res) {
   res.render("admin-giris");
@@ -28,6 +28,7 @@ router.get("/duyuru-galeri-ekle", function(req, res) {
 
 router.get("/admin-uye-goruntule", function(req, res) {
   res.render("admin/admin-uye-goruntule");
+
 });
 router.get("/admin-reklam-yonetim", function(req, res) {
   res.render("admin/admin-reklam-yonetim");

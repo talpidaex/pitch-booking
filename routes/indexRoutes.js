@@ -2,6 +2,7 @@
 // Ayırmamın sebebi app.js çok karışmaması için  ~ Oğuzhan Bayrak
 const express = require("express");
 const router = express.Router();
+const connection = require("../models/connection");
 
 router.get("/", function(req, res) {
   res.render("anasayfa");

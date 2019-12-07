@@ -13,8 +13,10 @@ app.use(bodyParser.urlencoded({
 //-------------Router middleware------------
 const indexRoutes = require("./routes/indexRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const apiRoutes = require("./api/apiRoutes");
 app.use(indexRoutes);
 app.use(adminRoutes);
+app.use(apiRoutes);
 //metecapar
 
 //--------------Server-------------------
