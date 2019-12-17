@@ -13,16 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Anasayfa</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/kayit-ol">Kayıt Ol</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/uye-giris">Giriş Yap</a>
-          </li>
+          <% if(currentUser) { %>
           <!-- dropdown-menümüz -->
           <div class="dropdown">
             <li class="dropbtn">Randevu İslemleri</li>
@@ -39,9 +30,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/randevu-iptal">Randevu İptal</a>
               </li>
-
             </div>
-
           </div>
           <div class="dropdown">
             <li class="dropbtn" style="padding-left :9px">Doluluk Durumu</li>
@@ -55,13 +44,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/isitmali-saha">Isıtmalı Saha</a>
               </li>
-
             </div>
-
           </div>
-          <li class="nav-item">
-            <a class="nav-link" href="/galeri">Galeri</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="/halisaha-degerlendirme">Halısaha Değerlendir</a>
           </li>
@@ -69,19 +53,35 @@
             <a class="nav-link" href="/profil-guncelle">Profil Güncelle</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/cikis-yap">Çıkış Yap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profil-guncelle"><%=currentUser%></a>
+          </li>
+          <%}else {%>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Anasayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/kayit-ol">Kayıt Ol</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/uye-giris">Giriş Yap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/galeri">Galeri</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/sosyalmedya">Sosyal Medya Hesaplarimiz</a>
           </li>
-
-
           <li class="nav-item">
             <a class="nav-link" href="/iletisim">İletişim</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="/admin-giris"><i class="fas fa-user-shield"></i></a>
           </li>
 
-
+          <% } %>
         </ul>
       </div>
     </nav>

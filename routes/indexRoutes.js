@@ -5,7 +5,11 @@ const router = express.Router();
 const connection = require("../models/connection");
 
 router.get("/", function(req, res) {
-  res.render("anasayfa");
+  if (req.session.loggedin) {
+    res.render("anasayfa");
+  } else {
+    res.render("anasayfa");
+  }
 });
 router.get("/kayit-ol", function(req, res) {
   res.render("kayıtOl");
@@ -13,6 +17,41 @@ router.get("/kayit-ol", function(req, res) {
 router.get("/uye-giris", function(req, res) {
   res.render("uyeGiris");
 });
+router.post("/uye-giris", function(req, res) {
+
+  var uyeEmail = req.body.uye_email;
+  var uyeSifre = req.body.uye_sifre;
+  if (uyeEmail && uyeSifre) {
+    connection.query("select * from UYE where uye_email = ? AND uye_sifre = ?", [uyeEmail, uyeSifre], function(err, results, fields) {
+      if (results.length > 0) {
+        req.session.loggedin = true;
+        req.session.username = uyeEmail;
+        res.redirect("/");
+      } else {
+        res.send('Incorrect Username and/or Password!');
+      }
+      res.end();
+    });
+  } else {
+    console.log(uyeSifre);
+
+    console.log(uyeEmail);
+    res.send('Please enter Username and Password!');
+    res.end();
+  }
+});
+
+router.get("/cikis-yap", function(req, res) {
+  req.session.destroy(function(err) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("çıkış başarılı!");
+      res.redirect("/");
+    }
+  })
+
+})
 router.get("/iletisim", function(req, res) {
   res.render("iletisim");
 });

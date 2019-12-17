@@ -2,9 +2,9 @@
 
 //Gecici olarak oluşturulan Alert mesajları- Back-end sonrası Düzeltilecektir!
 
-$("#uye-giris-button").click(function() {
+/* $("#uye-giris-button").click(function() {
   alert("Uye Giriş Başarılı!");
-});
+}); */
 $("#admin-giris-button").click(function() {
   alert("Admin Giriş Başarılı!");
 });

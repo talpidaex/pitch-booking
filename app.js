@@ -1,6 +1,7 @@
 //----------------npm paketlerimiz---------------
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 var app = express();
 
 //-------------App Config bölümü---------
@@ -9,6 +10,20 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+//------------ Session oluşturma-------------
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+//----------Navbar'ın girişten sonra değişmesi için-------------
+
+//User bilgilerini tüm routes'larla paylaşmak için:
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.username;
+  next();
+});
 
 //-------------Router middleware------------
 const indexRoutes = require("./routes/indexRoutes");
