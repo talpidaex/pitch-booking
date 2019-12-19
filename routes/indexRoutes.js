@@ -14,9 +14,33 @@ router.get("/", function(req, res) {
 router.get("/kayit-ol", function(req, res) {
   res.render("kayıtOl");
 });
+
+router.post("/kayit-ol", function(req, res) {
+
+  var yeniUye = {
+    uye_nick: req.body.k_adi,
+    uye_ad: req.body.isim,
+    uye_soyad: req.body.soyisim,
+    uye_tel: req.body.telefon,
+    uye_email: req.body.email,
+    uye_sifre: req.body.sifre
+  }
+
+  connection.query("INSERT INTO UYE SET ?", yeniUye, function(err, results) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Kayit işlemi başarılı!");
+      res.redirect("/");
+    }
+    res.end();
+  });
+});
+
 router.get("/uye-giris", function(req, res) {
   res.render("uyeGiris");
 });
+
 router.post("/uye-giris", function(req, res) {
 
   var uyeEmail = req.body.uye_email;
@@ -55,11 +79,37 @@ router.get("/cikis-yap", function(req, res) {
 router.get("/iletisim", function(req, res) {
   res.render("iletisim");
 });
+
+router.post("/iletisim", function(req, res) {
+
+  var yeniSikayet = {
+    Sikayetci_adi: req.body.isim,
+    Sikayetci_soyad: req.body.soyisim,
+    Sikayetci_email: req.body.email,
+    Sikayetci_telefon: req.body.tel,
+    Sikayetci_mesaj: req.body.mesaj
+  }
+  connection.query("INSERT INTO Sikayetler SET ?", yeniSikayet, function(err, results) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Sikayet başarıyla Gönderildi!");
+    }
+    res.redirect("/");
+    res.end();
+  });
+
+});
+
 router.get("/hakkimizda", function(req, res) {
   res.render("hakkimizda");
 });
 router.get("/randevual", function(req, res) {
-  res.render("randevual");
+  if (req.session.loggedin) {
+    res.render("randevual");
+  } else {
+    res.redirect("/");
+  }
 });
 router.get("/kayitli-randevular", function(req, res) {
   res.render("kayitli-randevular");
@@ -82,8 +132,11 @@ router.get("/isitmali-saha", function(req, res) {
 
 
 router.get("/galeri", function(req, res) {
-  res.render("galeri");
-
+  if (req.session.loggedin) {
+    res.render("galeri");
+  } else {
+    res.redirect("/");
+  }
 });
 router.get("/google-kayit", function(req, res) {
   res.render("google-kayit");
@@ -95,11 +148,36 @@ router.get("/2fa-giris", function(req, res) {
   res.render("2fa-giris");
 })
 router.get("/halisaha-degerlendirme", function(req, res) {
-  res.render("halisaha-degerlendirme");
+  if (req.session.loggedin) {
+    res.render("halisaha-degerlendirme");
+  } else {
+    res.redirect("/");
+  }
 })
 router.get("/profil-guncelle", function(req, res) {
-  res.render("profil-guncelle");
+  if (req.session.loggedin) {
+    res.render("profil-guncelle");
+  } else {
+    res.redirect("/");
+  }
 })
+
+router.post("/profil-guncelle", function(req, res) {
+  var yeniIsim = req.body.isim;
+  var yeniSoyisim = req.body.soyisim;
+  var yeniNick = req.body.nick;
+  var yeniSifre = req.body.yeni_sifre;
+  connection.query("UPDATE UYE SET uye_ad=?,uye_soyad=?,uye_nick=?,uye_sifre=? WHERE uye_email=?", [yeniIsim, yeniSoyisim, yeniNick, yeniSifre, req.session.username], function(err, results, fields) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("Güncelleme Başarılı!");
+      res.redirect("/");
+    }
+  })
+
+});
+
 router.get("/sosyalmedya", function(req, res) {
   res.render("sosyalmedya");
 })

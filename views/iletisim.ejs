@@ -18,36 +18,34 @@
         <div class="col-md-6">
           <div class="iletisimform">
             <div class="mbottom">
-
-
               <h2> Şikayet ve önerilerinizi bekleriz </h2>
               <p> Soru, görüş ve önerileriniz için bilgilerinizi bırakın biz sizi arayalım. </p>
             </div>
-            <form role="form" action="/tr/iletisim/" method="post">
+            <form role="form" action="/iletisim" method="POST">
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="text" class="form-control input-lg" placeholder="Adınız" required="" name="isim" id="isim" value="">
+                    <input type="text" class="form-control input-lg" placeholder="Adınız" name="isim" id="isim">
                   </div>
                   <div class="col-md-6">
-                    <input type="text" class="form-control input-lg" placeholder="Soyadınız" required="" name="soyisim" id="soyisim" value="">
+                    <input type="text" class="form-control input-lg" placeholder="Soyadınız" name="soyisim" id="soyisim">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="email" name="email" placeholder="E-Posta Adresiniz" required="" class="form-control input-lg" id="email" value="">
+                    <input type="email" placeholder="E-Posta Adresiniz" class="form-control input-lg" name="email" id="email">
                   </div>
                   <div class="col-md-6">
-                    <input type="tel" name="tel" placeholder="Telefon" required="" class="form-control input-lg" id="tel" value="">
+                    <input type="phone" placeholder="Telefon" required="" class="form-control input-lg" name="tel">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-12">
-                    <textarea name="mesaj" class="form-control" rows="8" cols="80" placeholder="Mesajınız"></textarea>
+                    <textarea class="form-control" rows="8" cols="80" placeholder="Mesajınız" name="mesaj"></textarea>
                   </div>
                 </div>
               </div><button type="submit" class="btn btn-gonder2 btn-lg" name="gonder">FORMU GÖNDER</button>
