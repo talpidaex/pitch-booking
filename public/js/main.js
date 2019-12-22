@@ -1,10 +1,3 @@
-// Oğuzhan Bayrak JS
-
-//Gecici olarak oluşturulan Alert mesajları- Back-end sonrası Düzeltilecektir!
-
-/* $("#uye-giris-button").click(function() {
-  alert("Uye Giriş Başarılı!");
-}); */
 $("#admin-giris-button").click(function() {
   alert("Admin Giriş Başarılı!");
 });
@@ -19,4 +12,14 @@ $("#admin-duyuru-button").click(function() {
 });
 $("#admin-image-add-button").click(function() {
   alert("Yeni Fotoğraflar Eklendi!");
+});
+
+$('#sikayet-form').click(function() {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Giriş Başarılı!',
+    showConfirmButton: false,
+    timer: 1300
+  })
 });

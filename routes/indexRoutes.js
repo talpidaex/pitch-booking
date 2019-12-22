@@ -43,28 +43,32 @@ router.get("/uye-giris", function(req, res) {
 
 router.post("/uye-giris", function(req, res) {
 
-  var uyeEmail = req.body.uye_email;
-  var uyeSifre = req.body.uye_sifre;
+  var uyeEmail = req.body.email; //email => ajax'tan geliyor!
+  var uyeSifre = req.body.sifre;
   if (uyeEmail && uyeSifre) {
     connection.query("select * from UYE where uye_email = ? AND uye_sifre = ?", [uyeEmail, uyeSifre], function(err, results, fields) {
       if (results.length > 0) {
         req.session.loggedin = true;
         req.session.username = uyeEmail;
-        res.redirect("/");
+        //Ajax'a gönderiyoruz success mesajını!
+        res.json({
+          success: true
+        });
+
       } else {
-        res.send('Incorrect Username and/or Password!');
+        res.json({
+          success: false
+        });
+
       }
       res.end();
     });
   } else {
-    console.log(uyeSifre);
-
-    console.log(uyeEmail);
     res.send('Please enter Username and Password!');
     res.end();
   }
 });
-
+//return Json(false, JsonRequestBehavior.AllowGet);
 router.get("/cikis-yap", function(req, res) {
   req.session.destroy(function(err) {
     if (err) {
@@ -106,11 +110,50 @@ router.get("/hakkimizda", function(req, res) {
 });
 router.get("/randevual", function(req, res) {
   if (req.session.loggedin) {
-    res.render("randevual");
+    var userEmail = req.session.username;
+    res.render("randevual", {
+      userEmail: userEmail
+    });
   } else {
     res.redirect("/");
   }
 });
+
+router.post("/randevual", function(req, res) {
+
+  var yeniRandevu = {
+    uye_email: req.body.uye_email,
+    r_gun: req.body.r_gun,
+    r_saat: req.body.r_saat,
+    halisaha_secimi: req.body.halisaha_secimi,
+    r_servis: req.body.r_servis,
+    r_video: req.body.r_video,
+    r_hakem: req.body.r_hakem,
+    r_odeme: req.body.r_odeme
+
+    //--------------------------------HardCoded-----------------
+    /*  uye_email: 'test@gmail.com',
+      r_gun: '2019-12-31',
+      r_saat: 10,
+      r_servis: true,
+      r_video: false,
+      r_hakem: true,
+      r_odeme: 'NAKİT' */
+  }
+  connection.query("INSERT INTO RANDEVU SET ?", yeniRandevu, function(err, results) {
+    if (err) {
+      console.log(err);
+      res.json({
+        gelenBoolean: false
+      })
+    } else {
+      res.json({
+        gelenBoolean: true
+      })
+    }
+  });
+});
+
 router.get("/kayitli-randevular", function(req, res) {
   res.render("kayitli-randevular");
 });

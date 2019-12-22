@@ -27,34 +27,34 @@
           </div>
         </div>
         <div class="card-body" id="uye-giris">
-          <form action="/uye-giris" method="POST">
+          <!-- <form id="uye-giris-form" action="uye-giris" method="post">  -->
+          <form id="uye-giris-form">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" class="form-control" name="uye_email" placeholder="email">
-
+              <input type="text" class="form-control" id="Email" name="uye_email" placeholder="email" required>
             </div>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input type="password" class="form-control" name="uye_sifre" placeholder="sifre">
+              <input type="password" class="form-control" id="Sifre" name="uye_sifre" placeholder="sifre" required>
             </div>
             <div class="form-group">
               <input type="submit" value="Giris" class="btn login_btn" id="uye-giris-button">
             </div>
+            <a href="/kayit-ol" class="btn btn-primary">Kayıt Ol</a>
           </form>
         </div>
       </div>
     </div>
   </div>
-
-
-
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/main.js" charset="utf-8"></script>
+<script src="js/uye-giris-ajax.js" charset="utf-8"></script>
 
 </html>

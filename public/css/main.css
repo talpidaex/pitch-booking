@@ -297,3 +297,9 @@ tr:nth-child(even) {
   background-color: orange;
   color: black;
 }
+#success-message {
+  display: none;
+}
+#error-message {
+  display: none;
+}
