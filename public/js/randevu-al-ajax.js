@@ -4,6 +4,35 @@ $(document).ready(function() {
   var today = new Date().toISOString().split('T')[0];
   $("#randevuGunu")[0].setAttribute('min', today);
 
+  //Randevu Tarihi seçildiğinde Sorgu yapmamız gerekmektedir!!!!!
+  $("#randevuGunu").on('change', function() {
+
+    var secilenGun = $(this).val();
+    var data = {
+      secilenGun: secilenGun
+    }
+    $.ajax({
+      url: "/randevual-json",
+      async: false,
+      data: data,
+      type: "get",
+      success: function(sonuc) {
+        $("option[name='saat']").prop('disabled', false);
+        for (var i = 0; i < sonuc.data.length; i++) {
+          //alert(sonuc.data[i].r_saat)
+          //option taglerinde value'sı bizim db'den olan saati bul ve disable yap!!
+          var test = $("option[name='saat']");
+          $.each(test, function(index, items) {
+            if (sonuc.data[i].r_saat === parseInt(items.value)) {
+              //console.log(sonuc.data[i].r_saat)
+              $(this).prop('disabled', true);
+            }
+          })
+        }
+      }
+    })
+  })
+
   $("#randevu-al-ajax").submit(function() {
     var email = $("#email").val();
     var randevuGunu = $("#randevuGunu").val();

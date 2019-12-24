@@ -12,6 +12,7 @@
 <%-include("partials/header") %>
 
 <body>
+
   <div id="booking" class="section">
     <div class="section-center">
       <div class="container">
@@ -29,12 +30,14 @@
                   </div>
                 </div>
                  -->
+
                 <div class="col-sm-6 col-lg-6">
                   <div class="form-group">
                     <span class="form-label">E-mail</span>
                     <input class="form-control" type="email" value="<%=userEmail%>" id="email" disabled>
                   </div>
                 </div>
+
               </div>
               <div class="row">
                 <div class="col-sm-5">
@@ -48,7 +51,8 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <span class="form-label">Saat</span>
-                        <select class="form-control">
+                        <select id="selectSaat" class="form-control">
+
                           <option name="saat" value="10">10</option>
                           <option name="saat" value="11">11</option>
                           <option name="saat" value="12">12</option>

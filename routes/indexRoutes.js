@@ -80,6 +80,7 @@ router.get("/cikis-yap", function(req, res) {
   })
 
 })
+
 router.get("/iletisim", function(req, res) {
   res.render("iletisim");
 });
@@ -108,15 +109,31 @@ router.post("/iletisim", function(req, res) {
 router.get("/hakkimizda", function(req, res) {
   res.render("hakkimizda");
 });
+
 router.get("/randevual", function(req, res) {
   if (req.session.loggedin) {
     var userEmail = req.session.username;
+
     res.render("randevual", {
       userEmail: userEmail
     });
   } else {
     res.redirect("/");
   }
+});
+router.get("/randevual-json", function(req, res) {
+  var secilenGun = req.query.secilenGun;
+  console.log(secilenGun);
+  connection.query("Select r_saat from RANDEVU where r_gun=?", [secilenGun], function(err, rows, fields) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(rows);
+      res.json({
+        data: rows
+      })
+    }
+  });
 });
 
 router.post("/randevual", function(req, res) {
