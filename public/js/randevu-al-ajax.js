@@ -19,12 +19,11 @@ $(document).ready(function() {
       success: function(sonuc) {
         $("option[name='saat']").prop('disabled', false);
         for (var i = 0; i < sonuc.data.length; i++) {
-          //alert(sonuc.data[i].r_saat)
           //option taglerinde value'sı bizim db'den olan saati bul ve disable yap!!
           var test = $("option[name='saat']");
           $.each(test, function(index, items) {
             if (sonuc.data[i].r_saat === parseInt(items.value)) {
-              //console.log(sonuc.data[i].r_saat)
+              console.log(sonuc.data[i].r_saat)
               $(this).prop('disabled', true);
             }
           })
@@ -44,7 +43,7 @@ $(document).ready(function() {
     var odemeSecenegi;
 
     //HalisahaSecimi
-    var halisahaRadioButton = $("#input[name='halisahaSecimi']:checked").val();
+    var halisahaRadioButton = $("input[name='halisahaSecimi']:checked").val();
     if (halisahaRadioButton === 'ACIK') {
       halisahaSecimi = "ACIK";
     } else if (halisahaRadioButton === 'KAPALI') {

@@ -135,7 +135,6 @@ router.get("/randevual-json", function(req, res) {
     }
   });
 });
-
 router.post("/randevual", function(req, res) {
 
   var yeniRandevu = {
@@ -171,8 +170,24 @@ router.post("/randevual", function(req, res) {
   });
 });
 
+
 router.get("/kayitli-randevular", function(req, res) {
-  res.render("kayitli-randevular");
+
+  var uye_email = req.session.username;
+
+  connection.query("Select * from RANDEVU where uye_email=?", [uye_email], function(err, rows, fields) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(rows);
+      res.render("kayitli-randevular", {
+        rows: rows
+      });
+    }
+
+  });
+
+
 });
 router.get("/randevu-guncelle", function(req, res) {
   res.render("randevu-guncelle");
@@ -180,8 +195,23 @@ router.get("/randevu-guncelle", function(req, res) {
 router.get("/randevu-iptal", function(req, res) {
   res.render("randevu-iptal");
 });
-router.get("/dacik-saha", function(req, res) {
-  res.render("dacik-saha");
+router.get("/halisaha-doluluk", function(req, res) {
+  res.render("halisaha-doluluk");
+});
+router.get("/acik-saha-json", function(req, res) {
+  var dolulukTakvim = req.query.dolulukTakvim;
+  var halisahaSecimi = req.query.halisahaSecimi;
+  //select * from RANDEVU where halisaha_secimi = 'ACIK' and r_gun = '2019-12-27'
+  connection.query("select * from RANDEVU where halisaha_secimi=? and r_gun=?", [halisahaSecimi, dolulukTakvim], function(err, rows, fields) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(rows);
+      res.json({
+        data: rows
+      })
+    }
+  });
 });
 router.get("/kapali-saha", function(req, res) {
   res.render("kapali-saha");
