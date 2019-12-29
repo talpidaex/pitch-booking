@@ -113,10 +113,14 @@ background-color: #FFC312;
 width: 100px;
 }
 .jumbotron {
+
   text-align: center;
 }
 .jumbotron .fas{
   margin: 20px;
+}
+.jumbotron .display-5 {
+      font-size: 3.3rem;
 }
 .card-kayıtOl{
    border-radius: 1rem;
@@ -306,4 +310,23 @@ tr:nth-child(even) {
 
 #Mytable {
   margin-top: 3.5rem;
+}
+#randevuSeciniz{
+  text-align: center;
+}
+.sikayet-btn {
+  width: 4rem;
+  height: 2.2rem;
+  float: right;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+#duyurular-1{
+    font-size: 1.7rem;
+    font-style: italic;
+}
+#duyurular-2 {
+  font-size: 1.4rem;
+  font-style: italic;
 }

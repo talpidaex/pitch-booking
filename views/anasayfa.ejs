@@ -94,9 +94,12 @@
     <div class="container">
 
       <h1 class="display-5"><i class="fas fa-bullhorn"></i>DUYURULAR</h1>
+      <%rows.forEach(function(items){%>
 
-      <p class="lead">Ramazan Bayramının 3. gününde açığız,Bayram şekeriniz bizden!!</p>
-      <p class="lead">Kurban bayramında 20.00 - 22.00 arasında <mark>50 LIRA</mark> indirim!</p>
+      <p id="duyurular-1" class="lead"><%=items.Duyurular%></p>
+      <p id="duyurular-2" class="lead"><%=items.Duyurular2%></p>
+
+      <%})%>
     </div>
   </div>
   <br><br>

@@ -31,41 +31,18 @@
               <div class="content-container clearfix">
                 <div class="col-md-12">
                   <ul class="mail-list">
+                    <%rows.forEach(function(items,index){%>
                     <li>
-                      <a href="">
-                        <span class="mail-sender">Oğuzhan Bayrak</span>
-                        <span class="mail-subject">Isıtma Sorunu</span>
-                        <span class="mail-message-preview">Halısahanız çok soğuk</span>
-                      </a>
+                      <div class="container">
+                        <span class="mail-sender"><%=items.Sikayetci_adi%> <%=items.Sikayetci_soyadi%></span>
+                        <span class="mail-subject"><%=items.Sikayetci_email%></span>
+                        <span class="mail-message-preview"><%=items.Sikayetci_mesaj%></span>
+                        <span id="button" value="<%=items.Sikayetler_id%>" class="btn-sm btn-danger sikayet-btn">Sil</span>
+                      </div>
                     </li>
-                    <li>
-                      <a href="">
-                        <span class="mail-sender">Mücahit Özalp</span>
-                        <span class="mail-subject">Halısaha Topları</span>
-                        <span class="mail-message-preview">Toplar çok sert</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <span class="mail-sender">Mete</span>
-                        <span class="mail-subject">Saatler</span>
-                        <span class="mail-message-preview">Çalışma saatleri uzatsanız çok daha seviniriz!</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <span class="mail-sender">Okan Zengin</span>
-                        <span class="mail-subject">Duşlar</span>
-                        <span class="mail-message-preview">Sıcak suyunuz çalışmıyor,kış aylarında büyük sorun</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <span class="mail-sender">Ömer Şahin</span>
-                        <span class="mail-subject">Isıtma Sorunu</span>
-                        <span class="mail-message-preview">Halısahanız çok soğuk</span>
-                      </a>
-                    </li>
+                    <br><br>
+                    <hr>
+                    <%})%>
                   </ul>
                 </div>
               </div>
@@ -79,8 +56,10 @@
 </body>
 <script type="text/javascript" src="js/main.js">
 </script>
-<script src="https://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="js/admin/sikayetler.js" charset="utf-8"></script>
 
 
 </html>

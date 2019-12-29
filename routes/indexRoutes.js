@@ -4,12 +4,23 @@ const express = require("express");
 const router = express.Router();
 const connection = require("../models/connection");
 
+
 router.get("/", function(req, res) {
-  if (req.session.loggedin) {
-    res.render("anasayfa");
-  } else {
-    res.render("anasayfa");
-  }
+
+  //Halısaha Duyurularını Anasayfa'da bas!
+  connection.query("Select Duyurular,Duyurular2 from Halısaha", function(err, rows) {
+    if (!err) {
+      if (req.session.loggedin) {
+        res.render("anasayfa", {
+          rows: rows
+        });
+      } else {
+        res.render("anasayfa", {
+          rows: rows
+        });
+      }
+    }
+  });
 });
 router.get("/kayit-ol", function(req, res) {
   res.render("kayıtOl");
@@ -31,9 +42,8 @@ router.post("/kayit-ol", function(req, res) {
       console.log(err);
     } else {
       console.log("Kayit işlemi başarılı!");
-      res.redirect("/");
+      console.log(req);
     }
-    res.end();
   });
 });
 
@@ -82,7 +92,18 @@ router.get("/cikis-yap", function(req, res) {
 })
 
 router.get("/iletisim", function(req, res) {
-  res.render("iletisim");
+  //DB'den iletişim bilgilerini çek!
+  connection.query("Select telefon,Adres from Halısaha ", function(err, rows) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("iletisim", {
+        rows: rows
+      });
+      console.log(rows);
+    }
+  })
+
 });
 
 router.post("/iletisim", function(req, res) {
@@ -123,8 +144,9 @@ router.get("/randevual", function(req, res) {
 });
 router.get("/randevual-json", function(req, res) {
   var secilenGun = req.query.secilenGun;
+  var halisahaSecimi = req.query.halisahaSecimi;
   console.log(secilenGun);
-  connection.query("Select r_saat from RANDEVU where r_gun=?", [secilenGun], function(err, rows, fields) {
+  connection.query("Select r_saat from RANDEVU where halisaha_secimi=? AND r_gun=?", [halisahaSecimi, secilenGun], function(err, rows, fields) {
     if (err) {
       console.log(err);
     } else {
@@ -147,14 +169,6 @@ router.post("/randevual", function(req, res) {
     r_hakem: req.body.r_hakem,
     r_odeme: req.body.r_odeme
 
-    //--------------------------------HardCoded-----------------
-    /*  uye_email: 'test@gmail.com',
-      r_gun: '2019-12-31',
-      r_saat: 10,
-      r_servis: true,
-      r_video: false,
-      r_hakem: true,
-      r_odeme: 'NAKİT' */
   }
   connection.query("INSERT INTO RANDEVU SET ?", yeniRandevu, function(err, results) {
     if (err) {
@@ -174,26 +188,144 @@ router.post("/randevual", function(req, res) {
 router.get("/kayitli-randevular", function(req, res) {
 
   var uye_email = req.session.username;
-
-  connection.query("Select * from RANDEVU where uye_email=?", [uye_email], function(err, rows, fields) {
+  connection.query("Select date_format(r_gun,'%d/%m/%Y') as r_gun,halisaha_secimi,r_gun as RandevuTarihi, CURDATE() as bugun from RANDEVU where uye_email=?", [uye_email], function(err, rows, fields) {
     if (err) {
       console.log(err)
     } else {
-      console.log(rows);
       res.render("kayitli-randevular", {
         rows: rows
       });
     }
+  });
+});
+router.get("/randevu-guncelle", function(req, res) {
+  if (req.session.loggedin) {
 
+    res.render("randevu-guncelle", {
+      uyeEmail: req.session.username
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/randevu-guncelle-ajax", function(req, res) {
+  var secilenGun = req.query.secilenGun;
+  var username = req.session.username;
+  console.log(secilenGun);
+  connection.query("Select r_saat from RANDEVU where halisaha_secimi=? AND uye_email=?", [halisahaSecimi, username], function(err, rows, fields) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(rows);
+      res.json({
+        data: rows
+      })
+    }
+  });
+});
+
+router.post("/randevu-guncelle", function(req, res) {
+  var uyeEmail = req.session.username;
+  var tarih = req.body.eskiRandevuTarihi;
+  var eskiSaat = req.body.eskiSaat;
+  var r_gun = req.body.r_gun;
+  var r_saat = req.body.r_saat;
+  var halisaha_secimi = req.body.halisaha_secimi;
+  var r_servis = req.body.r_servis;
+  var r_video = req.body.r_video;
+  var r_hakem = req.body.r_hakem;
+  var r_odeme = req.body.r_odeme;
+  // var uyeEmail = req.session.username;
+  // var tarih = req.body.eskiRandevuTarihi;
+  // var eskiSaat = req.body.eskiSaat;
+  // var r_gun = req.body.r_gun;
+  // var r_saat = '15';
+  // var halisaha_secimi = "KAPALI";
+  // var r_servis = "EVET";
+  // var r_video = "EVET";
+  // var r_hakem = "EVET";
+  // var r_odeme = "NAKIT";
+  connection.query("UPDATE SET RANDEVU r_gun=?,r_saat=?,halisaha_secimi=?,r_servis=?,r_video=?,r_hakem=?,r_odeme=? where r_gun=? and r_saat=? and uye_email=?", [r_gun, r_saat, halisaha_secimi, r_servis, r_video, r_hakem, r_odeme, tarih, eskiSaat, uyeEmail], function(err, rows, field) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(rows);
+    }
+  });
+
+});
+
+
+// router.get("/randevu-guncelle-ajax", function(req, res) {
+//   var uyeEmail = req.session.username;
+//   var tarih = req.query.tarih;
+//   var halisaha = req.query.halisaha;
+//   var data = {
+//     uyeEmail: uyeEmail,
+//     tarih: tarih,
+//     halisaha: halisaha
+//   }
+//   res.json({
+//     data: data
+//   })
+// });
+
+// router.post("/randevu-guncelle", function(req, res) {
+//   var uyeEmail = req.session.username;
+//   var tarih = req.query.tarih;
+//   var halisaha = req.query.halisaha;
+//   //-------------------
+//   var r_gun = req.body.r_gun;
+//   var r_saat = req.body.r_saat;
+//   var halisaha_secimi = req.body.halisaha_secimi;
+//   var r_servis = req.body.r_servis;
+//   var r_video = req.body.r_video;
+//   var r_hakem = req.body.r_hakem;
+//   var r_odeme = req.body.r_odeme;
+//   console.log(tarih);
+//   console.log(halisaha);
+//
+
+
+router.get("/randevu-iptal", function(req, res) {
+
+  var userEmail = req.session.username;
+
+  connection.query("Select date_format(r_gun,'%d/%m/%Y') as r_gun,halisaha_secimi,CURDATE() as bugun,r_gun as RandevuTarihi,r_saat from RANDEVU where uye_email=?", [userEmail], function(err, rows, field) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(rows);
+      res.render("randevu-iptal", {
+        rows: rows
+      });
+    }
+  });
+});
+
+router.post("/randevu-iptal", function(req, res) {
+  var uye_email = req.session.username;
+  var r_gun = req.body.r_gun;
+  var halisaha_secimi = req.body.halisaha_secimi;
+  var r_saat = req.body.r_saat;
+
+  connection.query("Delete from RANDEVU where r_gun=? and halisaha_secimi =? \
+  and uye_email=? and r_saat=?", [r_gun, halisaha_secimi, uye_email, r_saat], function(err, rows, fields) {
+    if (err) {
+      console.log(err);
+      res.json({
+        sonuc: false
+      })
+    } else {
+      res.json({
+        sonuc: true
+      })
+    }
   });
 
 
-});
-router.get("/randevu-guncelle", function(req, res) {
-  res.render("randevu-guncelle");
-});
-router.get("/randevu-iptal", function(req, res) {
-  res.render("randevu-iptal");
+
 });
 router.get("/halisaha-doluluk", function(req, res) {
   res.render("halisaha-doluluk");

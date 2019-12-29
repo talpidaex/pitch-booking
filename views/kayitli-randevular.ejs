@@ -23,48 +23,43 @@
             <form class="okan-form">
               <div class="form-header">
                 <h2>Kayıtlı Randevularınız</h2>
-                <p>En Fazla 2 Ay Önce Olan Geçmiş Randevunuzu Görüntüleyebilirsiniz.</p>
               </div>
               <table class="table table-hover table-dark">
                 <thead>
                   <tr>
-                    <th>Geçmiş Randevularınız</th>
+                    <th>Bugün veya Geçmişteki Randevularınız</th>
                   </tr>
                 </thead>
                 <tbody>
                   <%rows.forEach(function(items){ %>
                   <tr>
-                    <td><%=(items.r_gun)%></td>
+                    <%if(Date.parse(items.RandevuTarihi) <= items.bugun){%>
+                    <td><%=items.r_gun%></td>
                     <td><%=items.halisaha_secimi%></td>
+                    <%}else { %>
+                    <%} %>
                   </tr>
                   <%}) %>
-
                 </tbody>
               </table>
               <br><br>
-              <table class="table table-hover" align="center">
+              <table class="table table-hover table-dark">
                 <thead>
                   <tr>
-                    <th>Gelecek Randevularınız</th>
+                    <th>Gelecekteki Randevularınız</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <%rows.forEach(function(items){ %>
                   <tr>
-                    <td>03.12.2019</td>
-                    <td>Kapalı Saha</td>
+                    <%if(Date.parse(items.RandevuTarihi) > items.bugun){%>
+                    <td><%=items.r_gun%></td>
+                    <td><%=items.halisaha_secimi%></td>
+                    <td><a href="/randevu-guncelle" name='button' id="<%=items.r_gun%>" value="<%=items.halisaha_secimi%>" type=" button" class="btn btn-danger btn-sm">Guncelle</a></td>
+                    <%}else { %>
+                    <%} %>
                   </tr>
-                  <tr>
-                    <td>10.12.2019</td>
-                    <td>Kapalı Saha</td>
-                  </tr>
-                  <tr>
-                    <td>17.12.2019</td>
-                    <td>Açık Saha</td>
-                  </tr>
-                  <tr>
-                    <td>24.12.2019</td>
-                    <td>Kapalı Saha</td>
-                  </tr>
+                  <%}) %>
                 </tbody>
               </table>
 
@@ -76,5 +71,9 @@
   </div>
 </body>
 <%-include("partials/footer") %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="js/kayıtlı-randevular.js" charset="utf-8"></script>
 
 </html>

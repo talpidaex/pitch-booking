@@ -23,11 +23,13 @@
       </div>
       <div class="col-md-9">
         <h2>Duyurular ve Galeri Kontrolü </h2>
-        <form>
+        <form action="/duyuru-galeri-ekle" method="post">
           <h4> Duyuru Bölümü</h4>
           <div class="form-group">
             <label> Duyuru Yapılmasını İstediğiniz mesajı Buraya Yazınız</label>
-            <input type="text" class="form-control" placeholder="Mesajınız kısa olmalı duyuru için önemlidir!">
+            <input type="text" name="duyuru_1" class="form-control" placeholder="Mesajınız kısa olmalı duyuru için önemlidir!">
+            <br>
+            <input type="text" name="duyuru_2" class="form-control" placeholder="2. Duyuru bölümü">
           </div>
           <button id="admin-duyuru-button" type="submit" class="btn btn-danger"> Duyuru Yap </button>
         </form>
@@ -49,6 +51,7 @@
   </div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/main.js" charset="utf-8"></script>

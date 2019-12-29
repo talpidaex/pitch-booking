@@ -44,7 +44,7 @@
               <div class="form-label-group">
                 <label><i class="fas fa-unlock"></i></label>
                 <input type="password" id="inputPassword" name="sifre" class="form-control" placeholder="Son istek,Şifre lütfen" required>
-                <button class="btn btn-lg btn-primary btn-block  text-uppercase" type="submit">Kayıt Olabiliriz</button>
+                <button class="btn btn-lg btn-primary btn-block  text-uppercase" id="kayit-ol-button" type="submit">Kayıt Olabiliriz</button>
                 <hr class="my-4">
                 <a href="/google-kayit" class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i>Google'la giriş</a>
                 <a href="/face-kayit" class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i>Facebook ile giriş</a><br>
@@ -60,5 +60,9 @@
 
 </body>
 <%- include("partials/footer") %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="js/main.js" charset="utf-8"></script>
 
 </html>

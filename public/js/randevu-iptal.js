@@ -1,34 +1,43 @@
 $(document).ready(function() {
-  $('#uye-giris-form').submit(function() {
-    var email = $("#Email").val();
-    var sifre = $("#Sifre").val();
-    var uye = {
-      email: email,
-      sifre: sifre,
+
+  $("a[name='iptal-et']").on('click', function() {
+
+    var saat = $(this).attr('contextmenu');
+    var tarih = $(this).attr('id');
+    var halisaha = $(this).attr('value');
+
+    data = {
+      r_gun: tarih,
+      halisaha_secimi: halisaha,
+      r_saat: saat
     }
+
+    alert(saat);
+    alert(tarih);
+    alert(halisaha);
+
     $.ajax({
-      url: "uye-giris",
-      async: false,
-      data: uye,
+      url: "randevu-iptal",
       type: "post",
+      data: data,
       success: function(sonuc) {
-        if (sonuc.success) {
+        //sonuc:true'dan geliyor
+        if (sonuc.sonuc) {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Giriş Başarılı!',
+            title: 'Rezervasyon Silindi!',
             showConfirmButton: false,
             timer: 1300
           }).then(function(result) {
             if (true) {
-              window.location.href = "/";
+              window.location.reload(true);
             }
           });
         } else {
           Swal.fire({
-
             title: 'Maalesef!',
-            text: 'Email veya Şifre hatalı..',
+            text: 'Rezervasyon Silinemedi!',
             icon: 'error',
             confirmButtonText: 'Tekrar Dene'
           }).then(function() {
@@ -37,6 +46,5 @@ $(document).ready(function() {
         }
       }
     })
-    return false;
   });
 });

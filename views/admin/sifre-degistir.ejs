@@ -23,11 +23,10 @@
       </div>
       <div class="col-md-9">
         <h2>Şifre Değiştir</h2>
-        <form>
+        <form action="/SifreDegistir" method="post">
           <div class="form-group">
             <label> Lütfen Mevcut Şifrenizi Giriniz <i class="fas fa-unlock"></i> </label>
-            <input type="text" name="mevcutSifre" class="form-control" placeholder="Mevcut Sifreyi giriniz">
-            <input style="margin-top:3rem;" type="text" class="form-control" placeholder="Yeni Şifre giriniz">
+            <input style="margin-top:3rem;" name="yeniSifre" type="password" class="form-control" placeholder="Yeni Şifre giriniz">
           </div>
           <button id="admin-sifre-degistir" type="submit" class="btn btn-danger"> Şifre Güncelle </button>
         </form>
@@ -37,6 +36,7 @@
   </div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/main.js" charset="utf-8"></script>

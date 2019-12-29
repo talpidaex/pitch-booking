@@ -1,13 +1,12 @@
 $(document).ready(function() {
-
   //Randevu Günü bugünden geçmiş günlere alamazsın!!!
+  var today = new Date().toISOString().split('T')[0];
+  $("#eskiRandevuTarihi")[0].setAttribute('min', today);
   var today = new Date().toISOString().split('T')[0];
   $("#randevuGunu")[0].setAttribute('min', today);
 
-
-  //Randevu Tarihi seçildiğinde Sorgu yapmamız gerekmektedir!!!!!
+  //Eski Gun ve saat
   $("#randevuGunu").on('change', function() {
-
     var halisahaSecimi2;
     //HalisahaSecimi
     var halisahaRadioButton = $("input[name='halisahaSecimi']:checked").val();
@@ -19,12 +18,11 @@ $(document).ready(function() {
       halisahaSecimi2 = "ISITMALI";
     }
 
-    var secilenGun = $(this).val();
+    var secilenGun = $("#randevuGunu").val();
     var data = {
       secilenGun: secilenGun,
       halisahaSecimi: halisahaSecimi2
     }
-    alert(secilenGun);
     $.ajax({
       url: "/randevual-json",
       async: false,
@@ -46,8 +44,9 @@ $(document).ready(function() {
     })
   })
 
-  $("#randevu-al-ajax").submit(function() {
-    var email = $("#email").val();
+  $("#randevu-guncelle").submit(function() {
+    var eskiRandevu = $("#eskiRandevuTarihi").val();
+    var eskiSaat = $("option[name='saat2']:checked").val();
     var randevuGunu = $("#randevuGunu").val();
     var randevuSaati = $("option[name='saat']:checked").val();
     var halisahaSecimi;
@@ -97,17 +96,18 @@ $(document).ready(function() {
     } else {
       odemeSecenegi = 'NAKİT';
     }
-    /*
-        alert(randevuGunu)
-        alert(randevuSaati)
-        alert(servisSecenegi)
-        alert(videoSecenegi)
-        alert(hakemSecenegi)
-        alert(odemeSecenegi)
-    */
-    var yeniRandevu = {
+    alert(eskiRandevu)
+    alert(eskiSaat)
+    alert(randevuGunu)
+    alert(randevuSaati)
+    alert(servisSecenegi)
+    alert(videoSecenegi)
+    alert(hakemSecenegi)
+    alert(odemeSecenegi)
 
-      uye_email: email,
+    var randevuGuncelle = {
+      eskiRandevuTarihi: eskiRandevu,
+      eskiSaat: eskiSaat,
       r_gun: randevuGunu,
       r_saat: randevuSaati,
       halisaha_secimi: halisahaSecimi,
@@ -115,14 +115,12 @@ $(document).ready(function() {
       r_video: videoSecenegi,
       r_hakem: hakemSecenegi,
       r_odeme: odemeSecenegi,
-
-
     }
-    //back-ende yollayacağımız bölüm!
+    //back - ende yollayacağımız bölüm!
     $.ajax({
-      url: "/randevual",
+      url: "/randevu-guncelle",
       async: false,
-      data: yeniRandevu,
+      data: randevuGuncelle,
       type: "post",
       success: function(sonuc) {
         if (sonuc.gelenBoolean) {
@@ -151,4 +149,6 @@ $(document).ready(function() {
     })
     return false;
   })
+
+
 });
