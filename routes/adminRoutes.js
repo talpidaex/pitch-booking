@@ -1,6 +1,9 @@
   const express = require("express");
   const router = express.Router();
   const connection = require("../models/connection");
+  const multer = require("multer");
+  const path = require("path");
+
 
   router.get("/admin-giris", function(req, res) {
     res.render("admin-giris");
@@ -27,9 +30,6 @@
         }
       }
     });
-
-
-
   });
   //Tum Randevuları Görüntüle!
   router.get("/adminDashboard", function(req, res) {
@@ -118,6 +118,7 @@
 
     var duyuru1 = req.body.duyuru_1;
     var duyuru2 = req.body.duyuru_2;
+
     connection.query("Update Halısaha set Duyurular=?,Duyurular2=? where id_halisaha=1", [duyuru1, duyuru2], function(err, rows) {
       if (err) {
         console.log(err);
@@ -125,7 +126,43 @@
         console.log("Duyurular Eklendi!");
       }
     });
+  });
 
+  //Multer paketini kullanarak public/uploads lara image ekleyeceğiz!
+  const storage = multer.diskStorage({
+    destination: './public/uploads',
+    filename: function(req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() +
+        path.extname(file.originalname));
+    }
+  });
+  const upload = multer({
+    storage: storage
+  }).single('myImage');
+
+  router.post("/galeri-ekle", function(req, res) {
+
+    upload(req, res, (err) => {
+      if (err) {
+        res.render("/admin/duyuru-ve-image-ekle", {
+          msg: err
+        })
+      } else {
+        var filename = req.file.filename;
+
+        //DB'ye ekleyeğimiz yer!
+        connection.query("insert into halisaha_galeri set filename = ?", [filename], function(err, rows) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(rows);
+          }
+        })
+        console.log(req.file);
+        console.log(req.file.filename);
+        res.send("test");
+      }
+    });
   });
 
   router.get("/admin-uye-goruntule", function(req, res) {
@@ -139,8 +176,41 @@
 
 
   });
+
   router.get("/admin-reklam-yonetim", function(req, res) {
     res.render("admin/admin-reklam-yonetim");
-  })
+  });
+
+  const storageReklam = multer.diskStorage({
+    destination: './public/reklam',
+    filename: function(req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() +
+        path.extname(file.originalname));
+    }
+  });
+
+  const uploadReklam = multer({
+    storage: storageReklam
+  }).single('reklam');
+
+  router.post("/reklam-ekle", function(req, res) {
+
+    uploadReklam(req, res, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        //Db'ye ekleyeceğimiz yer!
+        var reklam = req.file.filename;
+        connection.query("insert into halisaha_reklam set reklam_filename=?", [reklam], function(err, rows) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(rows);
+          }
+        })
+      }
+    })
+
+  });
 
   module.exports = router;

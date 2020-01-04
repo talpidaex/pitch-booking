@@ -23,14 +23,14 @@
       </div>
       <div class="col-md-9">
         <h2>Duyurular ve Galeri Kontrolü </h2>
-       
+
         <!-- Reklam  ekleme formu -->
-        <form>
+        <form action="/reklam-ekle" method="post" enctype="multipart/form-data">
           <h4> Reklam Bölümü</h4>
           <div class="form-group">
             <label> Sitenize buradan istediğin firmanın fotoğrafını ekleyebilirsiniz!</label><br>
             <span>Gözat</span>
-            <input type="file" accept=".jpg,.png" class="form-control" multiple>
+            <input type="file" name="reklam" accept=".jpg,.png" class="form-control">
           </div>
           <button id="admin-image-add-button" type="submit" class="btn btn-danger"> Reklam Ekle </button>
         </form>

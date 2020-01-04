@@ -1,91 +1,38 @@
 <html>
-    <head>
-            <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 
-            <!-- Ozel css dosyamız -->
-            <link rel="stylesheet" href="css/main.css">
-    </head>
-    <%-include("partials/header") %>
+<head>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+  <!-- Ozel css dosyamız -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<%-include("partials/header") %>
+
 <body>
-    
 
-  
-    <!-- galeri içeriği -->
-<div class="container">
+
+
+  <!-- galeri içeriği -->
+  <div class="container">
 
     <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeri</h1>
-  
+
     <hr class="mt-2 mb-5">
-  
-    <div class="row text-center text-lg-left">
-  
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/6.jpg" alt="">
-            </a>
+
+    <div class="row">
+      <%rows.forEach(function(items){%>
+      <div class="col-lg-4">
+        <img style="width:300px; height : 300px; margin :2rem;" class="img-fluid img-thumbnail" src="uploads/<%=items.filename%>" alt="">
       </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/2.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/8.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/4.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/5.png" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/1.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/7.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/3.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/9.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/10.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/11.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="images/12.jpg" alt="">
-            </a>
-      </div>
+      <%})%>
     </div>
-  
+
+
   </div>
   <!-- /.container -->
-    <%-include("partials/footer") %>
+  <%-include("partials/footer") %>
 
-    
+
 </body>
 
 </html>

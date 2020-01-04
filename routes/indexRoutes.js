@@ -6,7 +6,6 @@ const connection = require("../models/connection");
 
 
 router.get("/", function(req, res) {
-
   //Halısaha Duyurularını Anasayfa'da bas!
   connection.query("Select Duyurular,Duyurular2 from Halısaha", function(err, rows) {
     if (!err) {
@@ -15,9 +14,11 @@ router.get("/", function(req, res) {
           rows: rows
         });
       } else {
+
         res.render("anasayfa", {
           rows: rows
         });
+
       }
     }
   });
@@ -350,14 +351,19 @@ router.get("/isitmali-saha", function(req, res) {
   res.render("isitmali-saha");
 });
 
-
 router.get("/galeri", function(req, res) {
-  if (req.session.loggedin) {
-    res.render("galeri");
-  } else {
-    res.redirect("/");
-  }
-});
+  connection.query("Select * from halisaha_galeri", function(err, rows) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("galeri", {
+        rows: rows
+      })
+    }
+  })
+
+})
+
 router.get("/google-kayit", function(req, res) {
   res.render("google-kayit");
 })
@@ -399,7 +405,17 @@ router.post("/profil-guncelle", function(req, res) {
 });
 
 router.get("/sosyalmedya", function(req, res) {
-  res.render("sosyalmedya");
+  //Reklam basacağımız yer!
+
+  connection.query("Select reklam_filename from halisaha_reklam ", function(err, rows) {
+    if (!err) {
+      console.log(rows);
+      res.render("sosyalmedya", {
+        rows: rows
+      });
+    }
+  });
+
 })
 
 module.exports = router;

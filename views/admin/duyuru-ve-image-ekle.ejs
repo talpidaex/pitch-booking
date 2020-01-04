@@ -34,12 +34,13 @@
           <button id="admin-duyuru-button" type="submit" class="btn btn-danger"> Duyuru Yap </button>
         </form>
         <!-- Galeri fotograf ekleme formu -->
-        <form>
+        <%= typeof msg != 'undefined' ? msg : '' %>
+        <form action="/galeri-ekle" method="post" enctype="multipart/form-data">
           <h4> Galeri Bölümü</h4>
           <div class="form-group">
             <label> Galerinize Buradan istediğiniz Fotoğrafları Ekleyebilirsiniz!</label><br>
             <span>Gözat</span>
-            <input type="file" accept=".jpg,.png" class="form-control" multiple>
+            <input type="file" name="myImage" accept=".jpg,.png" class="form-control" multiple>
           </div>
           <button id="admin-image-add-button" type="submit" class="btn btn-danger"> Galeriye Ekle </button>
         </form>
@@ -55,5 +56,14 @@
 <script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/main.js" charset="utf-8"></script>
+<script src="js/admin/galeriekle.js" charset="utf-8"></script>
+
+<script>
+
+
+
+
+
+</script>
 
 </html>
