@@ -21,23 +21,22 @@
           <h3 style="text-align : center">Admin Giriş Yap</h3>
         </div>
         <div class="card-body" id="uye-giris">
-          <form action="/adminDashboard" method="GET">
+          <form id="admin-form-giris">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" class="form-control" name="email" placeholder="email">
+              <input type="text" class="form-control" id="admin-email" name="email" placeholder="email">
 
             </div>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input type="password" class="form-control" name="sifre" placeholder="sifre">
+              <input type="password" class="form-control" id="admin-sifre" name="sifre" placeholder="sifre">
             </div>
             <div class="form-group">
               <input type="submit" value="Giriş" class="btn login_btn" id="admin-giris-button">
-
             </div>
           </form>
         </div>
@@ -47,6 +46,7 @@
 </body>
 <script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
-<script src="js/main.js" charset="utf-8"></script>
+<script src="js/admin/admin-giris.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 </html>

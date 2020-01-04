@@ -59,6 +59,20 @@ $("#admin-image-add-button").click(function() {
   alert("Yeni Fotoğraflar Eklendi!");
 });
 
+$("#btn-sikayet").click(function() {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Mesajınız iletildi!',
+    showConfirmButton: false,
+    timer: 1300
+  }).then(function(result) {
+    if (true) {
+      window.location.href = "/";
+    }
+  });
+});
+
 $('#sikayet-form').click(function() {
   Swal.fire({
     position: 'center',

@@ -21,35 +21,35 @@
               <h2> Şikayet ve önerilerinizi bekleriz </h2>
               <p> Soru, görüş ve önerileriniz için bilgilerinizi bırakın biz sizi arayalım. </p>
             </div>
-            <form action="iletisim" method="post">
+            <form action="/iletisim" method="post">
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="text" class="form-control input-lg" name="isim" placeholder="Adınız" id="isim">
+                    <input type="text" class="form-control input-lg" name="isim" placeholder="Adınız" id="isim" required>
                   </div>
                   <div class="col-md-6">
-                    <input type="text" class="form-control input-lg" name="soyisim" placeholder="Soyadınız" id="soyisim">
+                    <input type="text" class="form-control input-lg" name="soyisim" placeholder="Soyadınız" id="soyisim" required>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="email" placeholder="E-Posta Adresiniz" name="email" class="form-control input-lg" id="email">
+                    <input type="email" placeholder="E-Posta Adresiniz" name="email" class="form-control input-lg" id="email" required>
                   </div>
                   <div class="col-md-6">
-                    <input type="phone" placeholder="Telefon" required="" name="telefon" class="form-control input-lg" id="telefon">
+                    <input type="phone" placeholder="Telefon" required="" name="telefon" class="form-control input-lg" id="telefon" required>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-12">
-                    <textarea class="form-control" rows="8" cols="80" name="mesaj" placeholder="Mesajınız" id="mesaj"></textarea>
+                    <textarea class="form-control" rows="8" cols="80" name="mesaj" placeholder="Mesajınız" id="mesaj" required></textarea>
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-gonder2 btn-lg" name="gonder">FORMU GÖNDER</button>
+              <button type="submit" class="btn btn-gonder2 btn-lg" id="btn-sikayet" name="gonder">FORMU GÖNDER</button>
             </form>
           </div>
         </div>
@@ -94,5 +94,6 @@
 <script src="bootstrap/js/jquery.min.js" charset="utf-8"></script>
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/main.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 </html>

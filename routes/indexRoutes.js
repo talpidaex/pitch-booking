@@ -121,8 +121,6 @@ router.post("/iletisim", function(req, res) {
     } else {
       console.log("Sikayet başarıyla Gönderildi!");
     }
-    res.redirect("/");
-    res.end();
   });
 
 });

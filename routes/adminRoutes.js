@@ -5,6 +5,32 @@
   router.get("/admin-giris", function(req, res) {
     res.render("admin-giris");
   });
+
+  router.post("/admin-giris", function(req, res) {
+
+    var adminEmail = req.body.adminEmail;
+    var adminSifre = req.body.adminSifre;
+
+    connection.query("Select * from ADMİN", function(err, rows) {
+      if (!err) {
+        if (rows[0].admin_email === adminEmail && rows[0].admin_sifre === adminSifre) {
+          //Uye emaili girilenle eşitse
+          //şifreleri karşılaştırabiliriz.
+          res.json({
+            data: true
+          })
+        } else {
+          //Email eşit değil demek ki!
+          res.json({
+            data: false
+          })
+        }
+      }
+    });
+
+
+
+  });
   //Tum Randevuları Görüntüle!
   router.get("/adminDashboard", function(req, res) {
     res.render("admin/admin-dashboard");
@@ -103,7 +129,14 @@
   });
 
   router.get("/admin-uye-goruntule", function(req, res) {
-    res.render("admin/admin-uye-goruntule");
+    connection.query("Select * from UYE", function(err, rows) {
+      if (!err) {
+        res.render("admin/admin-uye-goruntule", {
+          rows: rows
+        });
+      }
+    })
+
 
   });
   router.get("/admin-reklam-yonetim", function(req, res) {
