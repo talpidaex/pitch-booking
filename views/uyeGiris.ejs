@@ -21,8 +21,13 @@
           <h3>Giris Yap</h3>
           <div class="d-flex justify-content-end social_icon">
 
-            <a href="/face-kayit"> <span><i class="fab fa-facebook-square"></i></span></a>
-            <a href="/google-kayit"> <span><i class="fab fa-google-plus-square"></i></span></a>
+            <!-- <a href="/face-kayit"> <span><i class="fab fa-facebook-square"></i></span></a> -->
+            <!-- <a href="/google-kayit"> <span><i class="fab fa-google-plus-square"></i></span></a> -->
+            <a href="/google"> <span><i class="fab fa-google-plus-square"></i></span></a>
+
+            <fb:login-button scope="public_profile,email,user_birthday" onlogin="checkLoginState();">
+            </fb:login-button>
+
 
           </div>
         </div>
@@ -56,5 +61,54 @@
 <script src="bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/main.js" charset="utf-8"></script>
 <script src="js/uye-giris-ajax.js" charset="utf-8"></script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '1417211421774376',
+      cookie: true,
+      xfbml: true,
+      version: 'v5.0'
+    });
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+      console.log("Giriş yapıldı");
+    } else {
+      console.log("Not auth!");
+    }
+  }
+
+  function setElements(isLoggedIn) {
+    if (isLoggedIn) {
+      console.log(document.getElementById('profile'));
+
+      console.log(document.getElementById('fb-btn'));
+    }
+  }
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+</script>
 
 </html>

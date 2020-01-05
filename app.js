@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const passport = require("passport");
 var app = express();
 
 //-------------App Config bölümü---------
@@ -10,7 +11,14 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+//---------------initialize passport -------------
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 //------------ Session oluşturma-------------
+
 app.use(session({
   secret: 'secret',
   resave: true,

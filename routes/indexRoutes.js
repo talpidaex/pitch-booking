@@ -3,6 +3,8 @@
 const express = require("express");
 const router = express.Router();
 const connection = require("../models/connection");
+const passport = require("passport");
+const passportSetup = require("../config/passport-setup");
 
 
 router.get("/", function(req, res) {
@@ -10,6 +12,7 @@ router.get("/", function(req, res) {
   connection.query("Select Duyurular,Duyurular2 from Halısaha", function(err, rows) {
     if (!err) {
       if (req.session.loggedin) {
+        console.log(req.session);
         res.render("anasayfa", {
           rows: rows
         });
@@ -23,6 +26,23 @@ router.get("/", function(req, res) {
     }
   });
 });
+
+
+router.get("/google", passport.authenticate('google', {
+  scope: ['profile']
+}));
+
+
+router.get("/auth/google/redirect", passport.authenticate('google'), function(req, res) {
+  req.session.loggedin = true;
+  req.session.username = req.user.username;
+  console.log(req);
+  res.redirect("/");
+})
+router.get("/facebook", function(req, res) {
+  res.send("test");
+});
+
 router.get("/kayit-ol", function(req, res) {
   res.render("kayıtOl");
 });
