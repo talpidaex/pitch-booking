@@ -9,7 +9,7 @@
   "author": "Oguzhan Bayrak",
   "license": "ISC",
   "engines" : {
-    "8.10.0"
+    "node" : "8.10.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
