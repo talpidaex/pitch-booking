@@ -232,7 +232,7 @@ router.get("/randevu-guncelle-ajax", function(req, res) {
   var secilenGun = req.query.secilenGun;
   var username = req.session.username;
   console.log(secilenGun);
-  connection.query("Select r_saat from RANDEVU where halisaha_secimi=? AND uye_email=?", [halisahaSecimi, username], function(err, rows, fields) {
+  connection.query("Select r_saat,r_id from RANDEVU where halisaha_secimi=? AND uye_email=?", [halisahaSecimi, username], function(err, rows, fields) {
     if (err) {
       console.log(err);
     } else {
@@ -245,34 +245,44 @@ router.get("/randevu-guncelle-ajax", function(req, res) {
 });
 
 router.post("/randevu-guncelle", function(req, res) {
+
+  var randevuID;
+  // Randevu ID'sini bulmamız için select sorgusu çalıştırmamız gerekmektedir!
   var uyeEmail = req.session.username;
   var tarih = req.body.eskiRandevuTarihi;
   var eskiSaat = req.body.eskiSaat;
-  var r_gun = req.body.r_gun;
-  var r_saat = req.body.r_saat;
-  var halisaha_secimi = req.body.halisaha_secimi;
-  var r_servis = req.body.r_servis;
-  var r_video = req.body.r_video;
-  var r_hakem = req.body.r_hakem;
-  var r_odeme = req.body.r_odeme;
-  // var uyeEmail = req.session.username;
-  // var tarih = req.body.eskiRandevuTarihi;
-  // var eskiSaat = req.body.eskiSaat;
-  // var r_gun = req.body.r_gun;
-  // var r_saat = '15';
-  // var halisaha_secimi = "KAPALI";
-  // var r_servis = "EVET";
-  // var r_video = "EVET";
-  // var r_hakem = "EVET";
-  // var r_odeme = "NAKIT";
-  connection.query("UPDATE SET RANDEVU r_gun=?,r_saat=?,halisaha_secimi=?,r_servis=?,r_video=?,r_hakem=?,r_odeme=? where r_gun=? and r_saat=? and uye_email=?", [r_gun, r_saat, halisaha_secimi, r_servis, r_video, r_hakem, r_odeme, tarih, eskiSaat, uyeEmail], function(err, rows, field) {
+
+
+  connection.query("Select r_id from RANDEVU where uye_email =? and r_saat=? and r_gun=?", [uyeEmail, eskiSaat, tarih], function(err, rows) {
     if (err) {
       console.log(err);
     } else {
-      console.log(rows);
-    }
-  });
+      //RandevuID'si bulunan rez. update yapabiliriz.  => where r_id = RandevuID olacak!
+      randevuID = rows[0].r_id;
+      var halisaha_secimi = req.body.halisaha_secimi;
+      var r_gun = req.body.r_gun;
+      var r_saat = req.body.r_saat;
+      var r_servis = req.body.r_servis;
+      var r_video = req.body.r_video;
+      var r_hakem = req.body.r_hakem;
+      var r_odeme = req.body.r_odeme;
 
+      connection.query("UPDATE RANDEVU SET r_gun=?,r_saat=?,halisaha_secimi=?,r_servis=?,r_video=?,r_hakem=?,r_odeme=? where r_id='" + randevuID + "'", [r_gun, r_saat, halisaha_secimi, r_servis, r_video, r_hakem, r_odeme], function(err, rows, field) {
+        if (err) {
+          console.log(err);
+          res.json({
+            data: false
+          })
+        } else {
+          //Update Başarılı olduğunda! Ajax'a yolluyoruz ve success mesajı basıyoruz!
+          res.json({
+            data: true
+          })
+
+        }
+      });
+    }
+  })
 });
 
 

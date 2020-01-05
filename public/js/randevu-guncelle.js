@@ -25,10 +25,12 @@ $(document).ready(function() {
     }
     $.ajax({
       url: "/randevual-json",
+      //  url: "randevu-guncelle-ajax",
       async: false,
       data: data,
       type: "get",
       success: function(sonuc) {
+
         $("option[name='saat']").prop('disabled', false);
         for (var i = 0; i < sonuc.data.length; i++) {
           //option taglerinde value'sı bizim db'den olan saati bul ve disable yap!!
@@ -96,6 +98,7 @@ $(document).ready(function() {
     } else {
       odemeSecenegi = 'NAKİT';
     }
+    /*
     alert(eskiRandevu)
     alert(eskiSaat)
     alert(randevuGunu)
@@ -104,7 +107,7 @@ $(document).ready(function() {
     alert(videoSecenegi)
     alert(hakemSecenegi)
     alert(odemeSecenegi)
-
+*/
     var randevuGuncelle = {
       eskiRandevuTarihi: eskiRandevu,
       eskiSaat: eskiSaat,
@@ -123,21 +126,21 @@ $(document).ready(function() {
       data: randevuGuncelle,
       type: "post",
       success: function(sonuc) {
-        if (sonuc.gelenBoolean) {
+        if (sonuc.data) {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Randevu Başarıyla Oluşturuldu!',
+            title: 'Randevu Güncellendi',
             showConfirmButton: false,
-            timer: 1000
+            timer: 1500
           }).then(function(result) {
             if (true) {
-              window.location.href = "/";
+              window.location.href = "/kayitli-randevular";
             }
           });
         } else {
           Swal.fire({
-            title: 'Randevu Oluşturulamadı!',
+            title: 'Güncelleme Başarısız!',
             text: 'Her şeyi doğru yaptığından emin misin?',
             icon: 'question',
             confirmButtonText: 'Tekrar Dene'

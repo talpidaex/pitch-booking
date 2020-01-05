@@ -24,7 +24,7 @@ $(document).ready(function() {
       secilenGun: secilenGun,
       halisahaSecimi: halisahaSecimi2
     }
-    alert(secilenGun);
+    //alert(secilenGun);
     $.ajax({
       url: "/randevual-json",
       async: false,

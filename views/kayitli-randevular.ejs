@@ -27,7 +27,7 @@
               <table class="table table-hover table-dark">
                 <thead>
                   <tr>
-                    <th>Bugün veya Geçmişteki Randevularınız</th>
+                    <th>Geçmişteki Randevularınız</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@
               <table class="table table-hover table-dark">
                 <thead>
                   <tr>
-                    <th>Gelecekteki Randevularınız</th>
+                    <th>Bugün&Gelecekteki Randevularınız</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,7 +55,7 @@
                     <%if(Date.parse(items.RandevuTarihi) > items.bugun){%>
                     <td><%=items.r_gun%></td>
                     <td><%=items.halisaha_secimi%></td>
-                    <td><a href="/randevu-guncelle" name='button' id="<%=items.r_gun%>" value="<%=items.halisaha_secimi%>" type=" button" class="btn btn-danger btn-sm">Guncelle</a></td>
+                    <!-- <td><a href="/randevu-guncelle" name='button' id="<%=items.r_gun%>" value="<%=items.halisaha_secimi%>" type=" button" class="btn btn-danger btn-sm">Guncelle</a></td> -->
                     <%}else { %>
                     <%} %>
                   </tr>
